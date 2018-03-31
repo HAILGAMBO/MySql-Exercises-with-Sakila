@@ -174,7 +174,6 @@ INNER JOIN rental r
 INNER JOIN payment p
 	ON (r.rental_id = p.rental_id)
 GROUP BY cat.name
-ORDER BY 'Gross Revenue' DESC
 ORDER BY sum(amount) DESC
 LIMIT 5;
 
@@ -186,7 +185,7 @@ INNER JOIN film_category fc
 	ON (cat.category_id = fc.category_id)
 INNER JOIN inventory i
 	ON (fc.film_id = i.film_id)
-INNER JOIN rstaff_listtop_five_genres_by_grosstotal_salesental r
+INNER JOIN rental r
 	ON (i.inventory_id = r.inventory_id)
 INNER JOIN payment p
 	ON (r.rental_id = p.rental_id)
